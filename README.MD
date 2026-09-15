@@ -67,6 +67,13 @@ core feature groups:
 Removed experimental folders such as `BlobCharacter/` and the old `brackeys_vfx_bundle/`
 content are not part of the current project scope.
 
+## The Chopstick Lab project content
+
+`content/the-chopstick-lab/` holds material specific to The Chopstick Lab video
+page, separate from the reusable visual toolkit. It includes folders for images,
+QR codes, demo videos, and reference material such as scripts, research notes,
+and briefs. See `content/the-chopstick-lab/README.md` for the folder layout.
+
 ## Project setup
 
 - Engine: Godot 4.7
