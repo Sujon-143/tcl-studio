@@ -74,6 +74,11 @@ page, separate from the reusable visual toolkit. It includes folders for images,
 QR codes, demo videos, and reference material such as scripts, research notes,
 and briefs. See `content/the-chopstick-lab/README.md` for the folder layout.
 
+## Documentation
+
+See [DOCUMENTATION.md](DOCUMENTATION.md) for an index of the reusable systems
+and links to setup, animation, geometry, science, and rendering guides.
+
 ## Project setup
 
 - Engine: Godot 4.7
