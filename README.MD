@@ -81,6 +81,15 @@ and briefs. See `content/the-chopstick-lab/README.md` for the folder layout.
 See [DOCUMENTATION.md](DOCUMENTATION.md) for an index of the reusable systems
 and links to setup, animation, geometry, science, and rendering guides.
 
+## Components add-on
+
+Enable **Components** from **Project > Project Settings > Plugins** to add
+the `Components` tab to the editor's bottom panel. It presents the curated
+(`class_name`) nodes in `library/` with search and category filters, so they can
+be added directly to the selected scene node without browsing Godot's full node
+list. Drag an entry onto the 2D or 3D editor to add it to the Scene Tree, or
+double-click it (or select it and choose **Add to Scene**).
+
 ## Project setup
 
 - Engine: Godot 4.7
