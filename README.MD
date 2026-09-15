@@ -1,5 +1,7 @@
 # tcl-studio
 
+![tcl-studio logo](logo.png)
+
 `tcl-studio` is a Godot-based visual studio for creating procedural scientific,
 mathematical, and physics-driven videos. The project is designed around a simple
 workflow: build reusable visual entities, expose their meaningful controls in the
