@@ -79,6 +79,25 @@ content are not part of the current project scope.
 The project config is set up as a Godot .NET project and includes support for
 C# along with a few scientific/visual packages used for math and rendering.
 
+## Using the `library/` directory on its own
+
+If someone takes only the `library/` directory and uses it in a separate Godot
+project, it is not a standalone, self-contained plugin by default. The library
+assumes the Godot project is configured with the proper .NET environment and the
+necessary C# references.
+
+In that case, the user should install the required .NET components for the
+project they are using, especially:
+
+- .NET SDK compatible with the target project setup
+- the Godot .NET support layer for C# scripts
+- any NuGet packages referenced by the project, such as `CSharpMath`,
+  `CSharpMath.SkiaSharp`, and `SkiaSharp`
+
+In other words, when the library is used independently, the user must install
+and configure the needed .NET modules and package dependencies separately, even
+though the visual code itself is organized as a reusable Godot library.
+
 ## Reusable animation system
 
 A central tool in the project is `ProcAnim`, which wraps common animation tasks
