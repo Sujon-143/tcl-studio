@@ -141,3 +141,7 @@ finished product in the usual sense; it is a reusable library for building
 scientific and procedural visual stories inside Godot. The cleanest workflow is
 still to keep scenes strongly parameterized, visually adjustable, and animation-
 ready so they remain easy to produce and refine over time.
+
+## License
+
+This project is available under the [MIT License](LICENSE).
