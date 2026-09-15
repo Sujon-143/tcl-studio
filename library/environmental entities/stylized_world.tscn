@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ip1lmsac442e"]
+
+[ext_resource type="Shader" uid="uid://d0mk84uqyw6ac" path="res://library/Shaders/stylized_sky2.gdshader" id="1_8dyat"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jadv"]
+shader = ExtResource("1_8dyat")
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0, 0, 0, 1)
+shader_parameter/horizon_blur = 0.999999977648
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.45300002081898005
+shader_parameter/sun_blur = 11.07300052526898
+shader_parameter/moon_bright_color = Color(0.95, 0.93, 0.88, 1)
+shader_parameter/moon_dark_color = Color(0.25, 0.23, 0.2, 1)
+shader_parameter/moon_size = 0.05900000210398
+shader_parameter/moon_blur = 0.0590000028025
+shader_parameter/moon_crater_scale = 1.0
+shader_parameter/moon_crater_depth = 0.55
+shader_parameter/moon_noise_scale = 5.246000201685
+shader_parameter/moon_noise_strength = 1.0
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 10.15999977290368
+shader_parameter/clouds_direction = 0.11085272
+shader_parameter/clouds_scale = 2.1999999508256
+shader_parameter/clouds_cutoff = 0.58999998681232
+shader_parameter/clouds_fuzziness = 0.0
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_2t1mb"]
+sky_material = SubResource("ShaderMaterial_4jadv")
+
+[sub_resource type="Environment" id="Environment_0rycs"]
+background_mode = 2
+sky = SubResource("Sky_2t1mb")
+ambient_light_color = Color(0.9471994, 0.9471994, 0.9471994, 1)
+ambient_light_sky_contribution = 0.0
+ssr_fade_in = 1.2423167
+ssr_fade_out = 1.3195081
+adjustment_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=33605089]
+environment = SubResource("Environment_0rycs")

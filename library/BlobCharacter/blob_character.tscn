@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://ofdvt11uc1b4"]
+
+[ext_resource type="Script" uid="uid://davejtaasf063" path="res://library/BlobCharacter/blob_character.gd" id="1_ko1ib"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w8od2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab1ak"]
+albedo_color = Color(0.42, 0.47, 0.52, 1)
+metallic = 0.04
+roughness = 0.62
+
+[sub_resource type="SphereMesh" id="SphereMesh_w8od2"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpbtf"]
+albedo_color = Color(0.12, 0.12, 0.15, 1)
+metallic = 0.04
+roughness = 0.62
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqphr"]
+albedo_color = Color(0.12, 0.12, 0.15, 1)
+metallic = 0.04
+roughness = 0.62
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ko1ib"]
+radius = 0.1
+height = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5f0s7"]
+albedo_color = Color(0.38, 0.43, 0.48, 1)
+metallic = 0.04
+roughness = 0.62
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qd6g"]
+albedo_color = Color(0.38, 0.43, 0.48, 1)
+metallic = 0.04
+roughness = 0.62
+
+[node name="BlobCharacter" type="Node3D" unique_id=1234511797]
+script = ExtResource("1_ko1ib")
+
+[node name="body" type="MeshInstance3D" parent="." unique_id=1263815266]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0077968, 0)
+mesh = SubResource("CapsuleMesh_w8od2")
+surface_material_override/0 = SubResource("StandardMaterial3D_ab1ak")
+
+[node name="character_camera" type="Camera3D" parent="body" unique_id=608052184]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.4849981, 0.5985236, 0)
+size = 13.757276
+
+[node name="eye_left" type="MeshInstance3D" parent="body" unique_id=1157004908]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3965829, 0.44156146, 0.2107721)
+mesh = SubResource("SphereMesh_w8od2")
+surface_material_override/0 = SubResource("StandardMaterial3D_qpbtf")
+
+[node name="eye_right" type="MeshInstance3D" parent="body" unique_id=168986312]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3965829, 0.44156146, -0.21831195)
+mesh = SubResource("SphereMesh_w8od2")
+surface_material_override/0 = SubResource("StandardMaterial3D_yqphr")
+
+[node name="hand_right" type="MeshInstance3D" parent="body" unique_id=1826924294]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12120557, 0, -0.6702888)
+mesh = SubResource("CapsuleMesh_ko1ib")
+surface_material_override/0 = SubResource("StandardMaterial3D_5f0s7")
+
+[node name="hand_left" type="MeshInstance3D" parent="body" unique_id=644667245]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12120557, 0, 0.67)
+mesh = SubResource("CapsuleMesh_ko1ib")
+surface_material_override/0 = SubResource("StandardMaterial3D_1qd6g")

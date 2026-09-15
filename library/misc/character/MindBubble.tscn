@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://t78plwd7qanf"]
+
+[ext_resource type="Script" uid="uid://dsfnnh3mv5ehe" path="res://library/misc/character/mind_bubble.gd" id="1_k653u"]
+
+[node name="MindBubble" type="Node2D" unique_id=1744425940]
+script = ExtResource("1_k653u")
+padding = Vector2(48, 32)
+min_size = Vector2(140, 80)
+font_color = Color(0, 0, 0, 1)
+text = "something fishy is going on here..."
+visibility_amount = 1.0
+visible_characters = -1

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bh4bckw3wqd8h"]
+
+[ext_resource type="Shader" uid="uid://c65s6cc23b6b2" path="res://library/Shaders/earth_cloud_layer.gdshader" id="1_2whpn"]
+[ext_resource type="Script" uid="uid://cljx58ttnx3j1" path="res://library/misc/earth/earth.gd" id="2_kkfi1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqdwj"]
+render_priority = 0
+shader = ExtResource("1_2whpn")
+shader_parameter/sun_direction = Vector3(0.3, 0.6, 0)
+shader_parameter/moon_direction = Vector3(-0.3, -0.6, 0)
+shader_parameter/light0_enabled = true
+shader_parameter/light1_enabled = true
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 3.07999993115584
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.2699999753382802
+shader_parameter/clouds_cutoff = 0.8499999810008
+shader_parameter/clouds_fuzziness = 0.0
+shader_parameter/clouds_weight = 0.0
+shader_parameter/stars_speed = 1.0
+shader_parameter/globe_alpha = 1.0
+shader_parameter/fresnel_strength = 1.5
+shader_parameter/fresnel_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbifw"]
+transparency = 1
+albedo_color = Color(1.1551381e-06, 0.7032312, 0.8457839, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2whpn"]
+radius = 1.0
+height = 2.0
+
+[node name="Earth" type="MeshInstance3D" unique_id=217433093]
+material_override = SubResource("ShaderMaterial_qqdwj")
+material_overlay = SubResource("StandardMaterial3D_gbifw")
+mesh = SubResource("SphereMesh_2whpn")
+script = ExtResource("2_kkfi1")
+selection_ring_color = Color(0.2, 0.8, 1, 1)
+selection_ring_radius = 0.15
+selection_ring_thickness = 0.015
+radial_arrow_color = Color(1, 0.45, 0.1, 1)
+radial_arrow_head_radius = 0.045
