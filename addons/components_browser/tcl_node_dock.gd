@@ -10,7 +10,7 @@ var catalog_entries: Array[Dictionary] = []
 
 signal node_drag_started(node_class: String)
 
-const COMPONENT_BUTTON := preload("res://addons/tcl_studio_nodes/component_button.gd")
+const COMPONENT_BUTTON := preload("res://addons/components_browser/component_button.gd")
 
 var search_box: LineEdit
 var category_picker: OptionButton
