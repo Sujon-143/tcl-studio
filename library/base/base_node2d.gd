@@ -5,9 +5,16 @@ extends Node2D
 @export var player:AnimationPlayer= null
 @export var animation_id:int= 0
 @export var quit_on_escape:bool=true
-
+@export var mouse_hidden:bool=false:
+	set(v):
+		if mouse_hidden:
+			Input.mouse_mode= Input.MOUSE_MODE_HIDDEN
+		Input.mouse_mode= Input.MOUSE_MODE_VISIBLE
+	get:return mouse_hidden
+		
 func _ready():
-	Input.mouse_mode= Input.MOUSE_MODE_HIDDEN
+	pass
+
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed():

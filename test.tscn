@@ -1,97 +1,45 @@
 [gd_scene format=3 uid="uid://big5ogt34tidp"]
 
 [ext_resource type="Script" uid="uid://73d1yxk1ow0x" path="res://library/base/base_node2d.gd" id="1_6uqi0"]
-[ext_resource type="Script" uid="uid://bbf82i4oioo08" path="res://library/misc/function_plot_2d.gd" id="2_6uqi0"]
-[ext_resource type="Script" uid="uid://ofbdes7fmcoc" path="res://library/shapes-2d/axis.gd" id="3_ppyta"]
+[ext_resource type="Script" uid="uid://hgd5gotlydcb" path="res://library/shapes-2d/circle2d.gd" id="4_ppyta"]
+[ext_resource type="Script" uid="uid://byi4uroosdqbg" path="res://addons/tcl-gui/bind_target.gd" id="4_ykrsh"]
+[ext_resource type="Script" uid="uid://cr4nr6qu27pr" path="res://addons/tcl-gui/circular_slider_2d.gd" id="5_ykrsh"]
 
-[sub_resource type="Animation" id="Animation_ppyta"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("graph:draw_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AxisGrid2D:popup_progress")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
+[sub_resource type="Resource" id="Resource_ppyta"]
+script = ExtResource("4_ykrsh")
+target_node = NodePath("../Circle2D")
+target_property = &"radius"
+metadata/_custom_type_script = "uid://byi4uroosdqbg"
 
-[sub_resource type="Animation" id="Animation_6uqi0"]
-resource_name = "scene1"
-length = 6.766667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AxisGrid2D:popup_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.16666666, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("graph:draw_progress")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.719624, 1.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ppyta"]
-_data = {
-&"RESET": SubResource("Animation_ppyta"),
-&"scene1": SubResource("Animation_6uqi0")
-}
-
-[node name="BaseNode2D" type="Node2D" unique_id=1888931682 node_paths=PackedStringArray("player")]
+[node name="Scene" type="Node2D" unique_id=1888931682 node_paths=PackedStringArray("player")]
 script = ExtResource("1_6uqi0")
 animation_names = Array[StringName]([&"scene1"])
-player = NodePath("AnimationPlayer")
+player = NodePath("")
 metadata/_custom_type_script = "uid://73d1yxk1ow0x"
 
-[node name="graph" type="Node2D" parent="." unique_id=1493920697 node_paths=PackedStringArray("ax")]
-position = Vector2(557, 317)
-script = ExtResource("2_6uqi0")
-function_expressionression = "sin(x)"
-color = Color(0.670925, 0.8921911, 0.99254626, 1)
-lower_limit = -3.0
-upper_limit = 3.0
-ax = NodePath("../AxisGrid2D")
-draw_progress = 0.0
-metadata/_custom_type_script = "uid://bbf82i4oioo08"
+[node name="Circle2D" type="Node2D" parent="." unique_id=1218840897]
+position = Vector2(218, 232)
+script = ExtResource("4_ppyta")
+metadata/_custom_type_script = "uid://hgd5gotlydcb"
 
-[node name="AxisGrid2D" type="Node2D" parent="." unique_id=202567270]
-visible = false
-position = Vector2(557, 317)
-script = ExtResource("3_ppyta")
-x_limit_l = -3.0
-x_limit_h = 3.0
-y_limit_l = -3.0
-y_limit_h = 3.0
-popup_progress = 0.0
-metadata/_custom_type_script = "uid://ofbdes7fmcoc"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1730043418]
-libraries/ = SubResource("AnimationLibrary_ppyta")
+[node name="CircularSlider2D" type="Control" parent="." unique_id=1464730769]
+custom_minimum_size = Vector2(122, 122)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 445.0
+offset_top = 242.0
+offset_right = 567.0
+offset_bottom = 364.0
+script = ExtResource("5_ykrsh")
+start_angle_deg = -180.0
+end_angle_deg = 0.0
+min_value = 10.0
+max_value = 100.0
+step = 0.1
+label_text = "circle radius"
+bind_to = Array[ExtResource("4_ykrsh")]([SubResource("Resource_ppyta")])
+outline_width = 1.795
+hover_lighten = 0.78
+press_darken = 0.21
+animation_speed = 4.0
+metadata/_custom_type_script = "uid://cr4nr6qu27pr"

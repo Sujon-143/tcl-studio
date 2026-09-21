@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="tcl-studio"
+run/main_scene="uid://big5ogt34tidp"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,7 +26,7 @@ project/assembly_name="tcl-studio"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/components_browser/plugin.cfg")
+enabled=PackedStringArray("res://addons/components_browser/plugin.cfg", "res://addons/render_queue/plugin.cfg", "res://addons/tcl-gui/plugin.cfg")
 
 [physics]
 

@@ -1,0 +1,14 @@
+[
+	{
+		"_last_result": "no output file",
+		"enabled": true,
+		"format": "AVI",
+		"fps": 30,
+		"height": 1080,
+		"output_path": "res://renders/test.ogv",
+		"quit_after_frames": 0,
+		"scene_path": "res://test.tscn",
+		"title": "test",
+		"width": 1920
+	}
+]
