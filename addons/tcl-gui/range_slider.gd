@@ -10,7 +10,7 @@ extends GuiElement2D
 @export var track_height: float = 8.0:
 	set(v): track_height = v; queue_redraw()
 @export var handle_radius: float = 10.0:
-	set(v): handle_radius = v; queue_redraw()
+	set(v): handle_radius = v; _sync_min_size()
 @export var min_value: float = 0.0:
 	set(v): min_value = v; queue_redraw()
 @export var max_value: float = 1.0:
@@ -34,9 +34,17 @@ var _dragging_handle: int = -1  ## -1 none, 0 = low, 1 = high
 
 func _ready() -> void:
 	super._ready()
-	if custom_minimum_size == Vector2.ZERO:
-		custom_minimum_size = Vector2(200, handle_radius * 2.0 + 24.0)
+	_sync_min_size()
 	mouse_filter = Control.MOUSE_FILTER_STOP
+
+
+## See Slider2D._sync_min_size() — same fix, same reason.
+func _sync_min_size() -> void:
+	var h := handle_radius * 2.0 + 24.0
+	custom_minimum_size = Vector2(custom_minimum_size.x if custom_minimum_size.x > 0.0 else 200.0, h)
+	if size.y < h:
+		size = Vector2(size.x, h)
+	queue_redraw()
 
 
 func get_low_value() -> float:

@@ -61,10 +61,11 @@ core feature groups:
 - `mesh-premitive-wrapper/` - wrappers and helpers for mesh-based generation.
 - `misc/` - small supporting utilities and experiments.
 - `Shaders/` - shader-based materials and visual effects.
-- `shapes-2d/` and related `shapes-derived*` folders - reusable geometry and
-  2D shape systems for diagrams and visual storytelling.
-- `shapes-derived-RSBased/` - shape systems built around more specialized or
-  render-oriented primitives.
+- `shapes-2d/` and the `shapes-derived/`, `shapes-derived-quad/`, and
+  `shapes-derived-RSBased/` folders - reusable geometry and shape systems for
+  diagrams and visual storytelling. `shapes-derived-quad/` builds shapes from
+  quads, while `shapes-derived-RSBased/` is built around render-oriented
+  primitives.
 
 Removed experimental folders such as `BlobCharacter/` and the old `brackeys_vfx_bundle/`
 content are not part of the current project scope.
@@ -77,25 +78,44 @@ QR codes, demo videos, and reference material such as scripts, research notes,
 and briefs. See `content/the-chopstick-lab/README.md` for the folder layout.
 
 ## Documentation
-
 See [DOCUMENTATION.md](DOCUMENTATION.md) for an index of the reusable systems
-and links to setup, animation, geometry, science, and rendering guides.
+and links to setup, animation, geometry, science, and rendering guides. The
+individual guides live in `docs/`.
 
-## Components add-on
+## Editor add-ons
 
-Enable **Components** from **Project > Project Settings > Plugins** to add
-the `Components` tab to the editor's bottom panel. It presents the curated
+The `addons/` directory contains three editor plugins. Enable them from
+**Project > Project Settings > Plugins**; all three are already enabled in
+`project.godot`.
+
+### Components Browser (`addons/components_browser/`)
+
+Adds a `Components` tab to the editor's bottom panel. It presents the curated
 (`class_name`) nodes in `library/` with search and category filters, so they can
 be added directly to the selected scene node without browsing Godot's full node
 list. Drag an entry onto the 2D or 3D editor to add it to the Scene Tree, or
 double-click it (or select it and choose **Add to Scene**).
+
+### Render Queue (`addons/render_queue/`)
+
+Adds a `Render Queue` tab that queues scenes and renders them to video through
+Godot's Movie Maker mode, one job per separate Godot process. See
+[its README](addons/render_queue/README.md) for usage and output formats.
+
+### tcl-gui (`addons/tcl-gui/`)
+
+Provides bindable 2D GUI controls (slider, toggle, button, stepper, level meter,
+circular slider, and range slider) plus a `BindTarget` resource that maps a
+control's value to a node property or method. An inspector plugin turns the
+binding target into a dropdown of the real properties and methods on the chosen
+node. See [its README](addons/tcl-gui/README.md).
 
 ## Project setup
 
 - Engine: Godot 4.7
 - .NET target: `net8.0`
 - Languages: GDScript and C#
-- Rendering: Forward Plus
+- Rendering: Forward Plus (Direct3D 12 driver on Windows)
 - Physics: Jolt Physics
 - Platform focus: Windows development workflow
 

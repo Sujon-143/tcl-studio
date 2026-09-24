@@ -54,4 +54,14 @@ const NODES: Array[Dictionary] = [
 	{"class_name": "Earth", "base": "MeshInstance3D", "path": "res://library/misc/earth/earth.gd", "category": "Scene Tools"},
 	{"class_name": "ProceduralHouseGenerator", "base": "Node3D", "path": "res://library/environmental entities/procedural_house_generator.gd", "category": "Scene Tools"},
 	{"class_name": "ProceduralTreeGenerator", "base": "Node3D", "path": "res://library/environmental entities/procedural_trees.gd", "category": "Scene Tools"},
+
+	# Control elements (hand-drawn, bindable GUI controls)
+	{"class_name": "Slider2D", "base": "Control", "path": "res://addons/tcl-gui/slider_2d.gd", "category": "Control Elements"},
+	{"class_name": "CircularSlider2D", "base": "Control", "path": "res://addons/tcl-gui/circular_slider_2d.gd", "category": "Control Elements"},
+	{"class_name": "RangeSlider2D", "base": "Control", "path": "res://addons/tcl-gui/range_slider_2d.gd", "category": "Control Elements"},
+	{"class_name": "Stepper2D", "base": "Control", "path": "res://addons/tcl-gui/stepper_2d.gd", "category": "Control Elements"},
+	{"class_name": "Toggle2D", "base": "Control", "path": "res://addons/tcl-gui/toggle_2d.gd", "category": "Control Elements"},
+	{"class_name": "Button2D", "base": "Control", "path": "res://addons/tcl-gui/button_2d.gd", "category": "Control Elements"},
+	{"class_name": "LevelMeter2D", "base": "Control", "path": "res://addons/tcl-gui/level_meter_2d.gd", "category": "Control Elements"},
+
 ]

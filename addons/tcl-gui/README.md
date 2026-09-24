@@ -1,69 +1,11 @@
-# tcl-studio documentation
+# tcl-gui add-on
 
-This index describes the reusable systems in `library/`. The toolkit is meant
-for editor-first scientific visualization: add a component to a Godot scene,
-adjust its exported properties in the Inspector, and animate those properties
-with `AnimationPlayer` or `ProcAnim`.
-
-## Guides
-
-- [Getting started](docs/getting-started.md) — requirements and the basic
-  editor workflow
-- [Animation](docs/animation.md) — `ProcAnim` and timeline-driven scenes
-- [Geometry and visual primitives](docs/geometry.md) — 2D/3D shapes, meshes,
-  plots, labels, and annotations
-- [Scientific components](docs/science.md) — chemistry, mathematical TeX, and
-  environmental generators
-- [Rendering and supporting tools](docs/rendering-and-tools.md) — shaders,
-  cameras, backgrounds, and utilities
-
-## Library map
-
-| Area | Location | Purpose |
-| --- | --- | --- |
-| Base nodes | `library/base/` | Reusable Node2D, Node3D, label, mesh, background, and animation-player foundations. |
-| Animation | `library/animation_handlers/` | High-level transitions and tween helpers. |
-| 2D geometry | `library/shapes-2d/` | Axes, graphs, curves, diagrams, labels, and annotations. |
-| 3D geometry | `library/shapes-derived*/` | Curves, grids, arrows, dimension lines, dashed forms, and surfaces. |
-| Mesh wrappers | `library/mesh-premitive-wrapper/` | Inspector-friendly wrappers around Godot mesh primitives. |
-| Science | `library/Chemical Elements/`, `library/GodoTeX/` | Molecular structures and TeX-style mathematical labels. |
-| Rendering | `library/Shaders/`, `library/environmental entities/` | Shader effects and procedural environments. |
-| Supporting tools | `library/misc/`, `library/Indications/` | Cameras, plots, timelines, pointers, and presentation effects. |
-
-## Guide files
-
-The guides linked above live in `docs/`:
-
-| Guide | File |
-| --- | --- |
-| Getting started | `docs/getting-started.md` |
-| Animation | `docs/animation.md` |
-| Geometry and visual primitives | `docs/geometry.md` |
-| Scientific components | `docs/science.md` |
-| Rendering and supporting tools | `docs/rendering-and-tools.md` |
-
-The source itself is the definitive API reference: exported properties appear
-in the Godot Inspector, and each component can be opened from the FileSystem
-dock to inspect its implementation.
-
-## Editor add-ons
-
-The `addons/` directory contains three editor plugins. Enable them from
-**Project > Project Settings > Plugins**; all three are already enabled in
-`project.godot`.
-
-| Add-on | Location | Purpose |
-| --- | --- | --- |
-| Components Browser | `addons/components_browser/` | A curated `Components` tab for adding `library/` nodes to the current scene. |
-| Render Queue | `addons/render_queue/` | Queues scenes and renders them to video via Movie Maker mode. |
-| tcl-gui | `addons/tcl-gui/` | Bindable 2D GUI controls plus an inspector property picker. |
-
-### tcl-gui
 Hand-drawn, bindable 2D GUI controls for tcl-studio, plus an inspector plugin
 that turns a control's binding target into a dropdown of the real properties and
 methods on the chosen node.
 
-#### Why it exists
+## Why it exists
+
 Scientific and mathematical videos often need on-screen controls — a slider that
 drives a parameter, a toggle that switches a value, a meter that reflects live
 state. Godot's built-in `Control` nodes look like default UI, and wiring a
@@ -72,7 +14,8 @@ with no validation. This add-on provides styled controls drawn for presentation,
 a small binding model, and editor pickers that remove the guesswork from those
 string references.
 
-#### Controls
+## Controls
+
 All controls extend `GuiElement2D`, which provides a shared rounded/shadowed
 look, smoothed hover and press feedback, an optional value label, and the
 `bind_to` array.
@@ -88,7 +31,8 @@ look, smoothed hover and press feedback, an optional value label, and the
 | `CircularSlider2D` | `circular_slider_2d.gd` | Out | Radial slider for angle-like values. |
 | `LevelMeter2D` | `level_meter_2d.gd` | In | Reads a source node's property each frame and shows it as a bar; can also forward the value onward via `bind_to`. |
 
-#### Binding model
+## Binding model
+
 A control's `bind_to` is an `Array[BindTarget]`, so one control can drive several
 targets at once. Each `BindTarget` (`bind_target.gd`) describes:
 
@@ -102,7 +46,7 @@ targets at once. Each `BindTarget` (`bind_target.gd`) describes:
 `LevelMeter2D` reads instead of writes: it polls `source_property` on
 `source_node` every frame, with smoothing and optional peak hold.
 
-#### Editor pickers
+## Editor pickers
 
 The plugin registers an `EditorInspectorPlugin`
 (`bind_target_inspector_plugin.gd`) that replaces free-typed strings with
@@ -113,7 +57,8 @@ dropdowns:
 - On a `LevelMeter2D`, `source_property` renders as a dropdown built from
   `source_node`'s properties.
 
-#### Usage
+## Usage
+
 1. Enable **tcl-gui** from **Project > Project Settings > Plugins**.
 2. Add a control (for example `Slider2D`) to a 2D scene.
 3. Expand its **Binding** group and add a `BindTarget` entry.
@@ -121,7 +66,8 @@ dropdowns:
    dropdown.
 5. Optionally enable the remap to scale the value into the target's range.
 
-#### Files
+## Files
+
 | File | Purpose |
 | --- | --- |
 | `plugin.cfg` | Plugin manifest. |

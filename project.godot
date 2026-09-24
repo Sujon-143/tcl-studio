@@ -13,7 +13,9 @@ config_version=5
 config/name="tcl-studio"
 run/main_scene="uid://big5ogt34tidp"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
+boot_splash/image="uid://bvfut3vlc4w3p"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=5000
 
 [display]
 

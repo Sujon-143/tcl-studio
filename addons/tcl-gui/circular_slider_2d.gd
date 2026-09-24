@@ -7,9 +7,9 @@ extends GuiElement2D
 
 @export_group("Circular Slider")
 @export var radius: float = 52.0:
-	set(v): radius = v; queue_redraw()
+	set(v): radius = v; _sync_min_size()
 @export var track_width: float = 9.0:
-	set(v): track_width = v; queue_redraw()
+	set(v): track_width = v; _sync_min_size()
 @export_range(-360.0, 360.0, 0.5) var start_angle_deg: float = -135.0:
 	set(v): start_angle_deg = v; queue_redraw()
 @export_range(-360.0, 360.0, 0.5) var end_angle_deg: float = 135.0:
@@ -32,10 +32,22 @@ var _dragging: bool = false
 
 func _ready() -> void:
 	super._ready()
-	if custom_minimum_size == Vector2.ZERO:
-		var d := (radius + track_width) * 2.0
-		custom_minimum_size = Vector2(d, d)
+	_sync_min_size()
 	mouse_filter = Control.MOUSE_FILTER_STOP
+
+
+## Keeps the control's actual rect (not just its minimum-size hint) big
+## enough for radius + track_width, in both directions. Without this, the
+## drawn arc/knob and mouse input past the old size go out of sync as soon
+## as radius grows beyond whatever size the control had at _ready() time —
+## input outside a Control's own rect is never delivered to it, so dragging
+## silently stops working past that point even though it still draws.
+func _sync_min_size() -> void:
+	var d := (radius + track_width) * 2.0
+	custom_minimum_size = Vector2(d, d)
+	if size.x < d or size.y < d:
+		size = Vector2(maxf(size.x, d), maxf(size.y, d))
+	queue_redraw()
 
 
 func get_value() -> float:
